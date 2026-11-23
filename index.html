@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101827" />
+  <title>Advanced Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">SMART TOOL</p>
+        <h1>Calculator</h1>
+      </div>
+      <div class="top-actions">
+        <button id="angleMode" class="chip" title="Toggle degrees/radians">DEG</button>
+        <button id="themeToggle" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">☼</button>
+      </div>
+    </header>
+
+    <section class="calculator">
+      <div class="display">
+        <div class="display-meta">
+          <span id="memoryIndicator">M: —</span>
+          <span id="status">Ready</span>
+        </div>
+        <div id="expression" class="expression" aria-label="Expression">0</div>
+        <div id="result" class="result" aria-live="polite">0</div>
+      </div>
+
+      <div class="utility-row">
+        <button data-action="memory-clear">MC</button>
+        <button data-action="memory-recall">MR</button>
+        <button data-action="memory-add">M+</button>
+        <button data-action="memory-subtract">M−</button>
+        <button data-action="memory-store">MS</button>
+      </div>
+
+      <div class="keypad">
+        <button class="function" data-value="(">(</button>
+        <button class="function" data-value=")">)</button>
+        <button class="function" data-action="percent">%</button>
+        <button class="danger" data-action="clear">AC</button>
+        <button class="danger" data-action="backspace">⌫</button>
+
+        <button class="function" data-value="sin(">sin</button>
+        <button class="function" data-value="cos(">cos</button>
+        <button class="function" data-value="tan(">tan</button>
+        <button class="function" data-value="sqrt(">√</button>
+        <button class="function" data-value="^">xʸ</button>
+
+        <button class="function" data-value="log(">log</button>
+        <button class="function" data-value="ln(">ln</button>
+        <button class="function" data-value="π">π</button>
+        <button class="function" data-value="e">e</button>
+        <button class="function" data-action="square">x²</button>
+
+        <button data-value="7">7</button>
+        <button data-value="8">8</button>
+        <button data-value="9">9</button>
+        <button class="operator" data-value="÷">÷</button>
+        <button class="function" data-value="!">n!</button>
+
+        <button data-value="4">4</button>
+        <button data-value="5">5</button>
+        <button data-value="6">6</button>
+        <button class="operator" data-value="×">×</button>
+        <button class="function" data-action="reciprocal">1/x</button>
+
+        <button data-value="1">1</button>
+        <button data-value="2">2</button>
+        <button data-value="3">3</button>
+        <button class="operator" data-value="−">−</button>
+        <button class="function" data-action="sign">±</button>
+
+        <button class="function" data-action="ans">Ans</button>
+        <button data-value="0">0</button>
+        <button data-value=".">.</button>
+        <button class="operator" data-value="+">+</button>
+        <button class="equals" data-action="equals">=</button>
+      </div>
+    </section>
+
+    <aside class="history-panel">
+      <div class="history-heading">
+        <div>
+          <p class="eyebrow">YOUR WORK</p>
+          <h2>History</h2>
+        </div>
+        <button id="clearHistory" class="text-btn">Clear</button>
+      </div>
+      <div id="history" class="history-list">
+        <p class="empty-history">Your calculations will appear here.</p>
+      </div>
+    </aside>
+
+    <footer>Keyboard supported · Scientific functions · Calculation history</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
