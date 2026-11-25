@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bloom — a joyful daily planner to grow your goals, habits and focus.">
+<title>Bloom — Grow Every Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<div class="app-shell">
+<aside class="sidebar">
+ <a class="brand" href="#"><span class="brand-icon">✿</span><span>bloom<small>GROW EVERY DAY</small></span></a>
+ <div class="side-label">YOUR SPACE</div>
+ <nav class="side-nav" aria-label="Task views">
+  <button class="nav-item active" data-filter="all"><span>▦</span> All tasks <b id="allCount">0</b></button>
+  <button class="nav-item" data-filter="today"><span>☼</span> Today <b id="todayCount">0</b></button>
+  <button class="nav-item" data-filter="upcoming"><span>⌁</span> Upcoming</button>
+  <button class="nav-item" data-filter="completed"><span>✓</span> Completed</button>
+ </nav>
+ <div class="side-label second-label">MAKE IT A HABIT</div>
+ <div class="habit-mini"><span class="habit-emoji">🌱</span><div><strong>Little by little</strong><small>Consistency blooms.</small></div></div>
+ <div class="sidebar-quote"><span>“</span><p>Be proud of how far you have come, and excited about where you are going.</p><small>A NOTE TO YOURSELF</small></div>
+ <div class="side-bottom">MADE WITH ♥ FOR YOUR GROWTH</div>
+</aside>
+<main class="main-content">
+ <header class="topbar"><div><span class="crumb">YOUR PERSONAL SPACE</span><span class="crumb-slash"> / </span><b id="viewLabel">ALL TASKS</b></div><div class="top-right"><span id="todayDate"></span><div class="avatar">✿</div></div></header>
+ <section class="hero">
+  <div class="hero-copy"><div class="eyebrow"><span class="live-dot"></span> A FRESH PAGE, A FRESH POSSIBILITY</div>
+   <h1>Make today<br><em>count.</em> <span class="hero-sparkle">✦</span></h1>
+   <p class="hero-sub">You don't need to have it all figured out. Just take one small step, then another.</p>
+   <div class="affirmation"><span>✧</span><p id="quoteText">I am becoming the person I dream of being.</p><button id="newQuote" aria-label="New affirmation" title="New affirmation">↻</button></div>
+  </div>
+  <div class="progress-card"><div class="progress-orbit orbit-a"></div><div class="progress-orbit orbit-b"></div>
+   <div class="progress-head"><span>YOUR DAILY BLOOM</span><span class="sun-icon">☀</span></div>
+   <div class="progress-number"><strong id="progressPercent">0%</strong><span>complete</span></div>
+   <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+   <div class="progress-foot"><span id="progressDone">0 tasks done</span><span id="progressTotal">0 planned</span></div>
+   <div class="progress-message" id="progressCheer">Every little step is growth 🌷</div>
+  </div>
+ </section>
+ <section class="stats-row">
+  <article class="stat-card"><span class="stat-icon lavender">✧</span><div><strong id="totalStat">0</strong><small>Tasks to grow</small></div></article>
+  <article class="stat-card"><span class="stat-icon peach">✓</span><div><strong id="doneStat">0</strong><small>Wins collected</small></div></article>
+  <article class="stat-card"><span class="stat-icon yellow">🔥</span><div><strong id="streakStat">0 days</strong><small>Growth streak</small></div></article>
+  <button class="focus-card" id="openFocus"><span class="focus-icon">◷</span><span><strong>Focus time</strong><small>Give one thing your best</small></span><b>Start ↗</b></button>
+ </section>
+ <section class="workspace">
+  <div class="tasks-panel">
+   <div class="section-heading"><div><div class="eyebrow muted">YOUR NEXT CHAPTER</div><h2 id="sectionTitle">Your tasks <span id="visibleCount">0</span></h2></div><button class="add-button" id="openAdd"><span>＋</span> Add a task</button></div>
+   <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Find a task..." aria-label="Search tasks"></label><div class="filter-pills"><button class="priority-filter active" data-priority="all">All</button><button class="priority-filter" data-priority="High">High</button><button class="priority-filter" data-priority="Medium">Medium</button><button class="priority-filter" data-priority="Low">Low</button></div></div>
+   <div class="task-list" id="taskList" aria-live="polite"></div>
+   <div class="empty-state" id="emptyState"><div class="empty-flower">✿</div><h3>Your next little win starts here.</h3><p>Add a task and watch your plans bloom.</p><button class="text-button" id="emptyAdd">Plant your first task ↗</button></div>
+  </div>
+  <aside class="right-rail">
+   <section class="dream-card"><div class="rail-heading"><div><span class="eyebrow muted">KEEP YOUR WHY CLOSE</span><h3>Dream board <span>☁</span></h3></div><button id="editDream" class="tiny-edit" title="Edit your dream">✎</button></div><div class="dream-art"><span class="dream-star star-one">✦</span><span class="dream-star star-two">✧</span><div class="dream-moon">☾</div><div class="dream-cloud">☁</div></div><p class="dream-label">I'M WORKING TOWARDS</p><p class="dream-text" id="dreamText">A future I'm excited to wake up to.</p><small class="dream-note">One tiny action today brings it closer.</small></section>
+   <section class="habits-card"><div class="rail-heading"><div><span class="eyebrow muted">SHOW UP FOR YOU</span><h3>Daily habits</h3></div><span class="habit-count" id="habitCount">0/3</span></div><div class="habit-list">
+    <label class="habit-row"><input type="checkbox" data-habit="water"><span class="habit-check">✓</span><span>Drink enough water</span><i>💧</i></label>
+    <label class="habit-row"><input type="checkbox" data-habit="read"><span class="habit-check">✓</span><span>Read for 10 minutes</span><i>📖</i></label>
+    <label class="habit-row"><input type="checkbox" data-habit="move"><span class="habit-check">✓</span><span>Move your body</span><i>🌿</i></label>
+   </div><p class="habit-footer" id="habitFooter">Tiny habits. Lovely changes.</p></section>
+   <div class="kindness-note"><span>🌷</span><p><strong>A gentle reminder</strong><br>Rest is productive too. You are a person, not a machine.</p></div>
+  </aside>
+ </section>
+ <footer class="main-footer"><span>BLOOM / YOUR PERSONAL GROWTH SPACE</span><span>GROW AT YOUR OWN PACE ✿</span></footer>
+</main>
+</div>
+<dialog class="task-dialog" id="taskDialog"><form id="taskForm"><div class="dialog-head"><div><p class="eyebrow muted">PLANT A NEW GOAL</p><h2 id="dialogTitle">Add a task</h2></div><button type="button" class="close-button" id="closeDialog">×</button></div>
+ <label class="field-label" for="taskTitle">What would you like to do?</label><input class="form-control" id="taskTitle" maxlength="90" placeholder="e.g. Finish my project ✨" required>
+ <div class="form-row"><div><label class="field-label" for="taskDate">Due date</label><input class="form-control" id="taskDate" type="date"></div><div><label class="field-label" for="taskPriority">Priority</label><select class="form-control" id="taskPriority"><option>Medium</option><option>High</option><option>Low</option></select></div></div>
+ <label class="field-label" for="taskNote">A little note <span class="optional">(optional)</span></label><textarea class="form-control" id="taskNote" rows="3" maxlength="180" placeholder="Break it into small steps..."></textarea>
+ <div class="dialog-actions"><button type="button" class="cancel-button" id="cancelDialog">Maybe later</button><button class="save-button" type="submit">Save my task ↗</button></div></form></dialog>
+<dialog class="focus-dialog" id="focusDialog"><div class="focus-modal"><button class="close-button focus-close" id="closeFocus">×</button><div class="focus-flower">✿</div><p class="eyebrow muted">A LITTLE TIME FOR YOU</p><h2>One thing at a time.</h2><p class="focus-intro">Take a breath. You can do more than you think.</p><div class="timer-ring"><div><strong id="timerDisplay">25:00</strong><small>MINUTES OF FOCUS</small></div></div><div class="timer-controls"><button class="cancel-button" id="resetTimer">Reset</button><button class="save-button" id="toggleTimer">Start focusing</button></div><p class="focus-footnote">No rush. Just progress. 💜</p></div></dialog>
+<dialog class="dream-dialog" id="dreamDialog"><form id="dreamForm"><div class="dialog-head"><div><p class="eyebrow muted">YOUR BIG WHY</p><h2>What are you dreaming of?</h2></div><button type="button" class="close-button" id="closeDream">×</button></div><label class="field-label" for="dreamInput">My dream</label><textarea class="form-control" id="dreamInput" rows="3" maxlength="120" placeholder="e.g. Build a career I love..."></textarea><div class="dialog-actions"><button type="button" class="cancel-button" id="cancelDream">Cancel</button><button class="save-button" type="submit">Save my dream ↗</button></div></form></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div><div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+<script src="script.js"></script>
+</body></html>
